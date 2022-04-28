@@ -5,9 +5,9 @@ const main = async() => {
     const waveContract = await waveContractFactory.deploy();
     await waveContract.deployed();
     console.log("Wave Portal Deployed @ ",waveContract.address);
-    let waveTxn = await waveContract.storeWave();
+    let waveTxn = await waveContract.storeWave("My first Msg!");
     await waveTxn.wait();
-    const totalWaves = await waveContract.getTotalWave();
+    const totalWaves = await waveContract.getAllWaves();
     console.log("Total Waves: ",totalWaves);
 }
 
